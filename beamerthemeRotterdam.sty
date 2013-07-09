@@ -1,0 +1,186 @@
+% Copyright 2013 Gertjan van den Burg
+% 
+% Unofficial Beamer style for the Erasmus School of Economics
+%
+% This file is released under the GPL license.
+
+\ProvidesPackage{beamerthemeRotterdam}%
+[2013/07/05 v0.1 Erasmus School of Economics beamer style]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colour definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{ESEYellow}{RGB}{255,255,0}
+\definecolor{EURGreen}{RGB}{0,79,92}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Parse options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\if@emphasizegreen
+\newif\if@structgreen
+\newif\if@titleyellow
+\newif\if@logogreen
+\DeclareOption{emphasizegreen}{\@emphasizegreentrue}
+\DeclareOption{structgreen}{\@structgreentrue}
+\DeclareOption{titleyellow}{\@titleyellowtrue}
+\DeclareOption{logogreen}{\@logogreentrue}
+\DeclareOption*{\PackageWarning{beamerthemeMYposter}{Unknown option `\CurrentOption'}}
+\ProcessOptions\relax
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set \emph command to specified colour.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\if@emphasizegreen
+\newcommand{\myemph}[1]{{\color{EURGreen}\bfseries #1}}
+\else
+\newcommand{\myemph}[1]{{\bfseries #1}}
+\fi
+\let\emph\myemph
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Outer theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useoutertheme[width=.07\paperwidth]{sidebar}
+\setlength{\beamer@headheight}{.120\paperheight}
+\setbeamertemplate{sidebar left}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Image declarations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pgfdeclareimage[width=25px]{small-logo}{Eraskop06-zg.pdf}
+% Set titlepage logo depending on option
+\if@logogreen
+\pgfdeclareimage[width=.5\paperwidth]{main-logo}{EURlogo_3165.pdf}
+\else
+\pgfdeclareimage[width=.5\paperwidth]{main-logo}{EURlogo_zw.pdf}
+\fi
+\titlegraphic{\pgfuseimage{main-logo}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Frame title definitions 
+% Includes spacing above and below frametitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addtobeamertemplate{frametitle}{\vskip0.25ex}{%
+\vskip-5px
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Headline definitions
+% Includes yellow lines and Erasmus head bottom left.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addtobeamertemplate{headline}{\vskip0.0ex}{%
+	\leavevmode%
+	\begin{pgfpicture}
+		\pgf@relevantforpicturesizefalse
+		\pgftransformxshift{-\Gm@lmargin}
+		\pgftransformyshift{\beamer@headheight}
+		\pgfusepath{stroke}
+		\pgfpathmoveto{\pgfpoint{.1810\paperwidth}{0\paperheight}}
+		\pgfpathlineto{\pgfpoint{.1810\paperwidth}{-1.0\paperheight}}
+		\pgfsetlinewidth{2pt}
+		\pgfsetinnerlinewidth{0pt}
+		\pgfsetcolor{ESEYellow}
+		\pgfusepath{stroke}
+		\pgfpathmoveto{\pgfpoint{.00\paperwidth}{-.913\paperheight}}
+		\pgfpathlineto{\pgfpoint{1.0\paperwidth+0.13\paperwidth}{-.913\paperheight}}
+		\pgfsetlinewidth{2pt}
+		\pgfsetinnerlinewidth{0pt}
+		\pgfsetcolor{ESEYellow}
+		\pgfusepath{stroke}
+		\pgftext[at=\pgfpoint{.034\paperwidth+0.11\paperwidth-0.1pt}{-1.0\paperheight},center,base]{\pgfuseimage{small-logo}}
+	\end{pgfpicture}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Footline specification
+% The height size of the beamercolorbox 
+% must be at least as high as the horizontal yellow line
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{footline}[text line]{%
+	\strut%
+	\begin{beamercolorbox}[ht=8.5ex]{black}
+		{\scriptsize ERASMUS SCHOOL OF \textbf{ECONOMICS}} \hfill \insertshortinstitute \hfill \insertframenumber/\inserttotalframenumber \vspace*{0.2cm}
+	\end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title page definitions
+% hspace corrects for the sidebar shift in other frames
+% There is probably a better way to do this than putting
+% everything in its own colorbox.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\defbeamertemplate*{title page}{customized}[1][]
+{%
+	\vfill
+	\hspace*{-0.06\paperwidth}
+	\setbeamercolor{title}{bg=ESEYellow,fg=black}
+	\begin{beamercolorbox}[sep=8pt,center]{title}
+		\usebeamerfont{title}\inserttitle
+	\end{beamercolorbox}
+	\par
+	\hspace*{-0.07\paperwidth}
+	\setbeamercolor{subtitle}{bg=white,fg=black}
+	\begin{beamercolorbox}[sep=8pt,center]{subtitle}
+		\usebeamerfont{subtitle}\insertsubtitle\par
+	\end{beamercolorbox}
+	\bigskip
+	\hspace*{-0.07\paperwidth}
+	\setbeamercolor{author}{bg=white,fg=black}
+	\begin{beamercolorbox}[sep=8pt,center]{author}
+		\usebeamerfont{author}\insertauthor\par
+	\end{beamercolorbox}
+	\par
+	\hspace*{-0.07\paperwidth}
+	\setbeamercolor{institute}{bg=white,fg=black}
+	\begin{beamercolorbox}[sep=2pt,center]{institute}
+		\usebeamerfont{institute}\insertinstitute\par
+	\end{beamercolorbox}
+	\par
+	\hspace*{-0.07\paperwidth}
+	\setbeamercolor{date}{bg=white,fg=black}
+	\begin{beamercolorbox}[sep=8pt,center]{date}
+		\usebeamerfont{date}\insertdate\par
+	\end{beamercolorbox}
+	\vfill
+	\hspace*{-0.07\paperwidth}
+	\setbeamercolor{titlegraphic}{bg=white,fg=black}
+	\begin{beamercolorbox}[sep=8pt,center]{titlegraphic}
+		\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
+	\end{beamercolorbox}
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inner Theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useinnertheme{rectangles}
+\setbeamertemplate{navigation symbols}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colours
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% structure colour
+\if@structgreen
+\usecolortheme[named=EURGreen]{structure}
+\else
+\usecolortheme[named=black]{structure}
+\fi
+% titlepage definitions
+\setbeamercolor{title page}{fg=black}
+\setbeamercolor{logo}{bg=white}
+% frametitle background
+\if@titleyellow
+\setbeamercolor{frametitle}{fg=black,bg=ESEYellow}
+\else
+\setbeamercolor{frametitle}{fg=black,bg=white}
+\fi
+% frametitle font
+\setbeamerfont{frametitle}{series=\bfseries}
+% blocks
+\setbeamercolor{block title}{bg=ESEYellow!80!white,fg=structure}
+\setbeamercolor{block body}{bg=ESEYellow!15!white}
+\setbeamercolor{block title alerted}{bg=ESEYellow!80!white,fg=red}
+\setbeamercolor{block body alerted}{bg=ESEYellow!15!white}
+\setbeamercolor{block title example}{bg=ESEYellow!80!white}
+\setbeamercolor{block body example}{bg=ESEYellow!15!white}
+
