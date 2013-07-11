@@ -13,7 +13,7 @@ Usage
 See the file `example.tex`. Include the following command
 in the preamble of the tex file:
 
-  \usetheme{Rotterdam}
+    \usetheme{Rotterdam}
 
 Options are:
 
@@ -27,7 +27,7 @@ Options are:
 
 Which can be used as usual as (for example):
 
-  \usetheme[titleyellow]{Rotterdam}
+    \usetheme[titleyellow]{Rotterdam}
 
 
 Installation
