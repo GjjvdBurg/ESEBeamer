@@ -3,9 +3,8 @@ Unofficial Beamer style for the Erasmus School of Economics
 
 Author: Gertjan van den Burg
 
-I created this beamer style for myself, as it currently did
-not exist. This is an unofficial style but it is based on 
-the official Powerpoint style for ESE.
+This is an unofficial beamer style based on the official 
+Powerpoint style for ESE.
 
 This code is released under the GPL License.
 
@@ -26,7 +25,7 @@ Options are:
   - logogreen: use the EUR green logo instead of the black
     one.
 
-Which can be used as usual as:
+Which can be used as usual as (for example):
 
   \usetheme[titleyellow]{Rotterdam}
 
