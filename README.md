@@ -1,12 +1,14 @@
+ESEBeamer
+=========
+
 Unofficial Beamer style for the Erasmus School of Economics
-===========================================================
 
 Author: Gertjan van den Burg
 
 This is an unofficial beamer style based on the official 
 Powerpoint style for ESE.
 
-This code is released under the GPL License.
+This code is released under the GPL License (v2) (see LICENSE).
 
 Usage
 -----
