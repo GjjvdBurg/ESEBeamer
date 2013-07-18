@@ -40,6 +40,10 @@ Installation
          and place the beamerthemeRotterdam.sty file in 
          this folder, together with the required pdf 
          images. Finally, update the package database with 
-         texhash or mktexlsr.
+         texhash or mktexlsr. Summarizing:
+
+             mkdir -p ~/texmf/tex/latex/beamer
+             git clone https://github.com/GjjvdBurg/ESEBeamer.git ~/texmf/tex/latex/beamer/rotterdam
+             sudo texhash
 
 - Windows: See http://tex.stackexchange.com/a/2066.
