@@ -7,6 +7,22 @@
 \ProvidesPackage{beamerthemeRotterdam}%
 [2013/08/07 v0.1 Erasmus School of Economics beamer style]
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Font definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Check if frutiger font is available.
+\AtBeginDocument{%
+	\IfFileExists{frutiger.sty}{%
+	\RequirePackage{frutiger}
+	\renewcommand\familydefault{\sfdefault}
+	}{%
+		\PackageWarning{beamerthemeRotterdam}{%
+			Font package frutiger.sty not found. See README\MessageBreak
+			for installation instructions.
+		}%
+	}%
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Colour definitions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
