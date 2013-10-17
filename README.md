@@ -12,6 +12,7 @@ This code is released under the GPL License (v2) (see LICENSE).
 
 *Note: The official font for ESE presentation slides is Frutiger. See [Fruty](http://github.com/GjjvdBurg/Fruty) for a look-alike font installer. When available, the font is automatically used in this beamer class.*
 
+See also: [ESEBeamerPoster](http://github.com/GjjvdBurg/ESEBeamerPoster).
 
 Usage
 -----
