@@ -1,16 +1,16 @@
 ESEBeamer
 =========
 
-Unofficial Beamer style for the Erasmus School of Economics
+Beamer style for the Erasmus School of Economics
 
 Author: Gertjan van den Burg
 
-This is an unofficial beamer style based on the official 
+This is a beamer style based on the official 
 Powerpoint style for ESE.
 
 This code is released under the GPL License (v2) (see LICENSE).
 
-*Note: The official font for ESE presentation slides is Frutiger. See [Fruty](http://github.com/GjjvdBurg/Fruty) for a look-alike font installer. When available, the font is automatically used in this beamer class.*
+*Note: The official font for ESE presentation slides is Frutiger. See [Fruty](http://github.com/GjjvdBurg/Fruty) for a look-alike font installer for Linux. When available, the font is automatically used in this beamer class.*
 
 See also: [ESEBeamerPoster](http://github.com/GjjvdBurg/ESEBeamerPoster).
 
