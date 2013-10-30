@@ -50,4 +50,19 @@ Installation
              git clone https://github.com/GjjvdBurg/ESEBeamer.git ~/texmf/tex/latex/beamer/rotterdam
              sudo texhash
 
-- Windows: See http://tex.stackexchange.com/a/2066.
+- Windows: See http://tex.stackexchange.com/a/2066. Create a
+           tex folder structure in a local folder (e.g.
+	   C:\Users\<username>\Documents\texmf\tex\latex\beamer\rotterdam)
+           
+           Download all files from the GitHub page by clicking
+           'Download ZIP' on the right side of the page. Unzip all 
+           files into the folder just created. Verify that the files
+           are indeed in the folder, and not in another subfolder.
+
+           Open the MikTeX settings from the Start menu
+           (MikTex/Maintenance/Settings). In the 'Root' tab, add
+           the texmf folder (C:\Users\<username>\Documents\texmf).
+           Go to the 'General' tab and click on 'Refresh FNDB'.
+
+           You should now be able to use the style.
+
