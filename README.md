@@ -52,7 +52,7 @@ Installation
 
 - Windows: See http://tex.stackexchange.com/a/2066. Create a
            tex folder structure in a local folder (e.g.
-	   C:\Users\\<username>\Documents\texmf\tex\latex\beamer\rotterdam)
+	   `C:\Users\<username>\Documents\texmf\tex\latex\beamer\rotterdam`)
            
  	   Download all files from the GitHub page by clicking
 	   'Download ZIP' on the right side of the page. Unzip all 
@@ -61,7 +61,7 @@ Installation
 	
 	   Open the MikTeX settings from the Start menu
 	   (MikTeX/Maintenance/Settings). In the 'Root' tab, add
-	   the texmf folder (C:\Users\\<username>\Documents\texmf).
+	   the texmf folder (`C:\Users\\<username>\Documents\texmf`).
 	   Go to the 'General' tab and click on 'Refresh FNDB'.
 	
 	   You should now be able to use the style.
