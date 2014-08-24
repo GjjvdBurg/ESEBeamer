@@ -30,6 +30,7 @@ Options are:
   - titleyellow: apply a yellow bar around the frame title
   - logogreen: use the EUR green logo instead of the black
     one.
+  - titletoc: show the table of contents on the titlepage
 
 Which can be used as usual as (for example):
 
