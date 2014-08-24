@@ -21,6 +21,8 @@
 			for installation instructions.
 		}%
 	}%
+	\RequirePackage{etoolbox}%
+	\RequirePackage[T1]{fontenc}%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -36,11 +38,14 @@
 \newif\if@structgreen
 \newif\if@titleyellow
 \newif\if@logogreen
+\newif\if@titletoc
 \DeclareOption{emphasizegreen}{\@emphasizegreentrue}
 \DeclareOption{structgreen}{\@structgreentrue}
 \DeclareOption{titleyellow}{\@titleyellowtrue}
 \DeclareOption{logogreen}{\@logogreentrue}
-\DeclareOption*{\PackageWarning{beamerthemeRotterdam}{Unknown option `\CurrentOption'}}
+\DeclareOption{titletoc}{\@titletoctrue}
+\DeclareOption*{\PackageWarning{beamerthemeRotterdam}{Unknown option 
+		`\CurrentOption'}}
 \ProcessOptions\relax
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -158,12 +163,34 @@
 		\usebeamerfont{date}\insertdate\par
 	\end{beamercolorbox}
 	\vfill
+	\if@titletoc
+	
+	\begin{columns}
+		\column{.30\linewidth}
+		\setbeamertemplate{section in toc}{{\quad\scriptsize
+			\inserttocsectionnumber.~		
+			\inserttocsection}}
+		\makeatletter
+		\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip-0.2em}{}{}
+		\makeatother
+		\flushleft
+		{\footnotesize Outline:}
+		\vskip0.2em
+		\tableofcontents[hideallsubsections]
+		\column{.70\linewidth}
+		\flushleft
+		\setbeamercolor{titlegraphic}{bg=white,fg=black}
+		\begin{beamercolorbox}[sep=8pt,center]{titlegraphic}
+			\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
+		\end{beamercolorbox}
+	\end{columns}
+	\else
 	\hspace*{-0.07\paperwidth}
 	\setbeamercolor{titlegraphic}{bg=white,fg=black}
 	\begin{beamercolorbox}[sep=8pt,center]{titlegraphic}
 		\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
 	\end{beamercolorbox}
-
+	\fi
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
